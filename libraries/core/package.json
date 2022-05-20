@@ -1,0 +1,40 @@
+{
+  "name": "@logan70/faejs-core",
+  "version": "0.0.0",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm2015/index.js",
+  "es2015": "lib/esm2015/index.js",
+  "typings": "lib/types/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "dev": "tsc --project tsconfig.dev.json --watch",
+    "build": "npm run clean && npm run build:cjs && npm run build:es2015 && npm run build:types && npm run declaration",
+    "declaration": "cp src/declarations.d.ts lib/types",
+    "clean": "rimraf lib",
+    "build:es2015": "tsc --project tsconfig.prod.esm2015.json",
+    "build:cjs": "tsc --project tsconfig.prod.cjs.json",
+    "build:types": "tsc --project tsconfig.prod.types.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "FaeJS",
+    "Decorator"
+  ],
+  "author": "logan70@163.com",
+  "license": "ISC",
+  "dependencies": {
+    "class-transformer": "^0.4.0",
+    "deepmerge": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "rimraf": "~3.0.2",
+    "typescript": "~4.4.4"
+  },
+  "description": "",
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
+}
